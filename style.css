@@ -49,3 +49,9 @@ div.app header form.insert_task button.add_task{
     border: none;
     color: var(--background);
 }
+footer p.number_of_tasks {
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+    font-size: 0.9rem;
+}
