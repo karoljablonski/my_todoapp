@@ -1,5 +1,8 @@
 My ToDoApp
 
+Checkout here:
+https://karoljablonski.github.io/my_todoapp/
+
 Features (MVP):
     adding your tasks (displaying number of tasks);
     deleting your tasks (through button);

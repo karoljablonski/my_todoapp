@@ -53,9 +53,10 @@ submitNewTask.addEventListener("click", addNewTask);
 searchTask.addEventListener("input", ()=>{
     const mySearch = searchTask.value.toLowerCase();
     let myList = [...tasksItems];
+    let shortenedItem; 
     myList.forEach((item)=>{
         item.style.display = "none";
     });
-    myList = myList.filter(item=>item.textContent.toLowerCase().includes(mySearch));
+    myList = myList.filter(item=>item.textContent.slice(0, (item.textContent.length-5)).toLowerCase().includes(mySearch)); //gets text from item, slices last 5 chars, changes letters to lower, and checks if includes any char from mySearch.
     myList.forEach(item=>item.style.display = "list-item");
     });
