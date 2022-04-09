@@ -47,5 +47,15 @@ function addNewTask(e){
 insertNewTask.value = "";
 }
 
-
 submitNewTask.addEventListener("click", addNewTask);
+
+//searching:
+searchTask.addEventListener("input", ()=>{
+    const mySearch = searchTask.value.toLowerCase();
+    let myList = [...tasksItems];
+    myList.forEach((item)=>{
+        item.style.display = "none";
+    });
+    myList = myList.filter(item=>item.textContent.toLowerCase().includes(mySearch));
+    myList.forEach(item=>item.style.display = "list-item");
+    });
