@@ -49,6 +49,10 @@ div.app header form.insert_task button.add_task{
     border: none;
     color: var(--background);
 }
+div.app ul.tasks_list{
+    display: flex;
+    flex-direction: column-reverse;
+}
 footer p.number_of_tasks {
     position: absolute;
     bottom: 0px;
