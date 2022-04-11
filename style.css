@@ -1,6 +1,7 @@
 :root{
     --font-color: #876FF5;
     --font-color__elements: #F7F7F7;
+    --font-color__elements_false: #777777;
     --background: #1E1E1F;
 }
 .greetings_animation{
@@ -8,7 +9,7 @@
 }
 body{
     background-color: var(--background);
-    color: var(--font-color);
+    color: var(--font-color__elements);
     font-family: Roboto, sans-serif;
     overflow: hidden;
 }
@@ -86,6 +87,65 @@ div.app ul.tasks_list{
     display: flex;
     flex-direction: column-reverse;
 }
+div.app ul.tasks_list .task_item{
+    list-style: none;
+    width: 30vw;
+}
+
+/* CUSTOM CHECKBOX */
+
+div.app ul.tasks_list .task_item label{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+div.app ul.tasks_list .task_item label .my_checkbox{
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border: 2px solid var(--font-color);
+    border-radius: 2px;
+    margin-right: 10px;
+}
+div.app ul.tasks_list .task_item label input:checked ~ .my_checkbox{
+    background: var(--font-color);
+}
+div.app ul.tasks_list .task_item label .my_task{
+    position: relative;
+}
+div.app ul.tasks_list .task_item label input:checked ~ .my_task{
+    color: var(--font-color__elements_false);
+}
+div.app ul.tasks_list .task_item label input:checked ~ .my_task::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 9px;
+    left: -5%;
+    width: 110%;
+    height: 2px;
+    opacity: 80%;
+    background-color: var(--font-color__elements_false);
+}
+div.app ul.tasks_list .task_item label .my_checkbox::after{
+    content: '';
+    display: none;
+    position: relative;
+    top: 1px;
+    left: 6px;
+}
+div.app ul.tasks_list .task_item label input:checked ~ .my_checkbox::after{
+    display: block;
+    box-sizing: border-box;
+    width: 8px;
+    height: 13px;
+    border: 3px solid var(--background);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* CUSTOM CHECKBOX */
+
 footer p.number_of_tasks {
     position: absolute;
     bottom: 0px;
