@@ -10,6 +10,33 @@ body{
 h1{
     text-align: center;
 }
+div.greetings{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #1E1E1F;
+    z-index: 10;
+}
+div.greetings img{
+    margin-top: 20%;
+    cursor: pointer;
+}
+div.greetings h1{
+    color: #876FF5;
+}
+div.greetings p{
+    margin-top: -5%;
+    color: #F7F7F7;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 21px;
+}
 div.app{
     display: flex;
     flex-direction: column;

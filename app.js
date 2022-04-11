@@ -19,7 +19,7 @@ function howManyTasks(){
     const num = tasksItems.length;
     const statement = numberofTaskSentence;
     if(!num){
-        statement.textContent = "You've accomplished all your tasks!";
+        statement.textContent = "You've completed all your tasks!";
     } else if(num === 1){
         statement.textContent = "You've collected 1 task so far!";
     } else {
