@@ -8,9 +8,21 @@ const numberofTaskSentence = document.querySelector("footer>p.number_of_tasks");
 let key = 0;
 //so we want to: get input after clicking '+', put that into needed 'box' which at last should be 'li' and add it to ul.tasks_list.
 //set up template to display task proper way to all tasks:
+function setDataKeyOnTask(){
+    key = 0;
+    const tasksItemsConverted = [...tasksItems];
+    tasksItemsConverted.forEach((item)=>{
+        item.dataset.key = "";
+    });
+    for(let i = 0; i < tasksItemsConverted.length; i++){
+        tasksItemsConverted[i].dataset.key = i;
+    }
+    
+}
+
 function taskTemplate(item, text){
-    item.dataset.key = key;
-    key++;
+    // item.dataset.key = key;
+    // key++;
     item.className = "task_item";
     item.innerHTML = `${text} <button class="remove_task">Done!</button>`;
 };
@@ -38,10 +50,12 @@ function addNewTask(e){
         displayTasks.appendChild(newTaskBox);
         taskTemplate(newTaskBox, newTask);
         howManyTasks();
+        setDataKeyOnTask();
         newTaskBox.querySelector("button.remove_task").addEventListener("click", 
             (e)=>{
                 e.target.parentNode.remove();
                 howManyTasks();
+                setDataKeyOnTask();
         });
 };
 insertNewTask.value = "";
