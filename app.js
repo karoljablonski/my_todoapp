@@ -13,16 +13,24 @@ function setDataKeyOnTask(){
     const tasksItemsConverted = [...tasksItems];
     tasksItemsConverted.forEach((item)=>{
         item.dataset.key = "";
+        item.children[0].htmlFor = "";
+        item.children[0].children[0].id = "";
     });
     for(let i = 0; i < tasksItemsConverted.length; i++){
         tasksItemsConverted[i].dataset.key = i;
-    }
+        tasksItemsConverted[i].children[0].htmlFor = `test${i}`;
+        tasksItemsConverted[i].children[0].children[0].id = `test${i}`;
+    };
 }
 
 //set up template to display task proper way to all tasks:
 function taskTemplate(item, text){
     item.className = "task_item";
-    item.innerHTML = `${text} <button class="remove_task">Done!</button>`;
+    item.innerHTML = `<label for="">
+    <input hidden type="checkbox" id="">
+    <span class="my_checkbox"></span>
+    <span class="my_task"></span>
+    </label>${text} <button class="remove_task">Done!</button>`;
 };
 
 //info displayed about number of tasks added:
