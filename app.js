@@ -29,8 +29,8 @@ function taskTemplate(item, text){
     item.innerHTML = `<label for="">
     <input hidden type="checkbox" id="">
     <span class="my_checkbox"></span>
-    <span class="my_task"></span>
-    </label>${text} <button class="remove_task">Done!</button>`;
+    <span class="my_task">${text}</span>
+    </label><button class="remove_task">Done!</button>`;
 };
 
 //info displayed about number of tasks added:
@@ -80,3 +80,15 @@ searchTask.addEventListener("input", ()=>{
     tasksItemsConverted = tasksItemsConverted.filter(item=>item.textContent.slice(0, (item.textContent.length-5)).toLowerCase().includes(mySearch)); //gets text from item, slices last 5 chars, changes letters to lower, and checks if includes any char from mySearch.
     tasksItemsConverted.forEach(item=>item.style.display = "flex");
     });
+
+    //show searching bar:
+let flagForSearchTaskDisplay = true;
+document.querySelector("footer>img").addEventListener("click", ()=>{
+    if(flagForSearchTaskDisplay){
+        searchTask.style.display = "block";
+        flagForSearchTaskDisplay = false;
+    } else {
+        searchTask.style.display = "none";
+        flagForSearchTaskDisplay = true;
+    }
+});

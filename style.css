@@ -5,6 +5,11 @@
     --font-color__detail: #59CEB4;
     --background: #1E1E1F;
 }
+html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .greetings_animation{
     transform: translateX(100%);
 }
@@ -13,9 +18,15 @@ body{
     color: var(--font-color__elements);
     font-family: Roboto, sans-serif;
     overflow: hidden;
+    max-width: 100vw;
+    max-height: 100vh;
 }
-h1{
+nav{
+    width: 100vw;
+}
+nav h1{
     text-align: center;
+    font-weight: lighter;
 }
 div.greetings{
     position: absolute;
@@ -46,29 +57,51 @@ div.greetings p{
     line-height: 21px;
 }
 div.app{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 90vw;
 }
 div.app header{
     text-align: center;
-}
-div.app header p{
-    padding: 0 15px;
-    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 div.app header form.insert_task{
-    padding: 0 12vw;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    
 }
-div.app header input.search {
-    margin-left: 20vw;
-    margin-top: 25px;
+div.app header form.insert_task button.add_task{
+    position: relative;
+    width: 21px;
+    height: 21px;
+    padding: 0;
+    margin: 0 5%;
+    border-radius: 4px;
+    font-size: 20px;
+    line-height: 0.9;
+    border: 2px solid var(--font-color);
+    background-color: transparent;
+    color: var(--font-color);
+}
+div.app header form.insert_task button.add_task::after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    padding: 0;
+    top: -2px;
+    left: 30px;
+    opacity: 20%;
+    width: 1px;
+    height: 21px;
+    background-color: var(--font-color__detail);
 }
 div.app header form.insert_task input{
+    /* margin-left: 5%; */
     background: transparent;
     font-size: 1.1rem;
     border: none;
@@ -80,29 +113,15 @@ div.app header form.insert_task input::placeholder{
     font-weight: 100;
     opacity: 50%;
 }
-div.app header form.insert_task button.add_task{
-    position: relative;
-    width: 21px;
-    height: 21px;
-    padding: 0;
-    border-radius: 15%;
-    font-size: 20px;
-    line-height: 0.5;
-    border: 2px solid var(--font-color);
-    background-color: transparent;
-    color: var(--font-color);
-}
-div.app header form.insert_task button.add_task::after{
-    content: '';
-    display: inline-block;
-    position: absolute;
-    padding: 0;
-    top: -2px;
-    left: 35px;
-    opacity: 20%;
-    width: 1px;
-    height: 21px;
-    background-color: var(--font-color__detail);
+div.app header input.search {
+    display: none;
+    width: 90%;
+    border: none;
+    padding: 0 5% 0 5%;
+    font-size: 16px;
+    line-height: 2;
+    border-radius: 5px;
+    margin-top: 25px;
 }
 div.app ul.tasks_list{
     display: flex;
@@ -174,9 +193,18 @@ div.app ul.tasks_list .task_item label input:checked ~ .my_checkbox::after{
 
 /* CUSTOM CHECKBOX */
 
-footer p.number_of_tasks {
+footer {
     position: absolute;
-    bottom: 0px;
+    bottom: 25px;
+    text-align: center;
     left: 20px;
+    right: 20px;
     font-size: 0.9rem;
+}
+footer img {
+    padding: 10px;
+    cursor: pointer;
+}
+.displayBlock{
+    display: block;
 }

@@ -16,3 +16,6 @@ https://karoljablonski.github.io/my_todoapp/
     set your tasks as init when reload/revisit website;
     use cookies/json;
     button to delete all tasks;
+
+#Ideas:
+    searchbar try to do as popup, rest of page blurred
