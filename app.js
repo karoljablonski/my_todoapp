@@ -78,5 +78,5 @@ searchTask.addEventListener("input", ()=>{
         item.style.display = "none";
     });
     tasksItemsConverted = tasksItemsConverted.filter(item=>item.textContent.slice(0, (item.textContent.length-5)).toLowerCase().includes(mySearch)); //gets text from item, slices last 5 chars, changes letters to lower, and checks if includes any char from mySearch.
-    tasksItemsConverted.forEach(item=>item.style.display = "list-item");
+    tasksItemsConverted.forEach(item=>item.style.display = "flex");
     });
