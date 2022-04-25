@@ -19,3 +19,4 @@ https://karoljablonski.github.io/my_todoapp/
 
 #Ideas:
     searchbar try to do as popup, rest of page blurred
+    add mobile frame for width more than ___.
