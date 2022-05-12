@@ -1,74 +1,74 @@
 //get DOM elements that interact
-const insertNewTask = document.querySelector("div.app header form.insert_task input");
-const submitNewTask = document.querySelector("div.app header form.insert_task button.add_task")
-const displayTasks = document.querySelector("div.app ul.tasks_list");
-const searchTask = document.querySelector("input.search");
-const tasksItems = document.getElementsByClassName("task_item");
-const numberofTaskSentence = document.querySelector("footer>p.number_of_tasks");
+// const insertNewTask = document.querySelector("div.app header form.insert_task input");
+// const submitNewTask = document.querySelector("div.app header form.insert_task button.add_task")
+// const displayTasks = document.querySelector("div.app ul.tasks_list");
+// const searchTask = document.querySelector("input.search");
+// const tasksItems = document.getElementsByClassName("task_item");
+// const numberofTaskSentence = document.querySelector("footer>p.number_of_tasks");
 let key = 0;
 
 //proper set dataset for tasks:
-function setDataKeyOnTask(){
-    key = 0;
-    const tasksItemsConverted = [...tasksItems];
-    tasksItemsConverted.forEach((item)=>{
-        item.dataset.key = "";
-        item.children[0].htmlFor = "";
-        item.children[0].children[0].id = "";
-    });
-    for(let i = 0; i < tasksItemsConverted.length; i++){
-        tasksItemsConverted[i].dataset.key = i;
-        tasksItemsConverted[i].children[0].htmlFor = `test${i}`;
-        tasksItemsConverted[i].children[0].children[0].id = `test${i}`;
-    };
-}
+// function setDataKeyOnTask(){
+//     key = 0;
+//     const tasksItemsConverted = [...tasksItems];
+//     tasksItemsConverted.forEach((item)=>{
+//         item.dataset.key = "";
+//         item.children[0].htmlFor = "";
+//         item.children[0].children[0].id = "";
+//     });
+//     for(let i = 0; i < tasksItemsConverted.length; i++){
+//         tasksItemsConverted[i].dataset.key = i;
+//         tasksItemsConverted[i].children[0].htmlFor = `test${i}`;
+//         tasksItemsConverted[i].children[0].children[0].id = `test${i}`;
+//     };
+// }
 
 //set up template to display task proper way to all tasks:
 function taskTemplate(item, text){
-    item.className = "task_item";
-    item.innerHTML = `<label for="">
-    <input hidden type="checkbox" id="">
-    <span class="my_checkbox"></span>
-    <span class="my_task">${text}</span>
-    </label><button class="remove_task">Done!</button>`;
+    // item.className = "task_item";
+    // item.innerHTML = `<label for="">
+    // <input hidden type="checkbox" id="">
+    // <span class="my_checkbox"></span>
+    // <span class="my_task">${text}</span>
+    // </label><button class="remove_task">Done!</button>`;
 };
 
 //info displayed about number of tasks added:
 function howManyTasks(){
-    const num = tasksItems.length;
-    const statement = numberofTaskSentence;
-    if(!num){
-        statement.textContent = "You've completed all your tasks!";
-    } else if(num === 1){
-        statement.textContent = "You've collected 1 task so far!";
-    } else {
-        statement.textContent = `You've collected ${num} tasks!`;
-    }
+    // const num = tasksItems.length;
+    // const statement = numberofTaskSentence;
+    // if(!num){
+    //     statement.textContent = "You've completed all your tasks!";
+    // } else if(num === 1){
+    //     statement.textContent = "You've collected 1 task so far!";
+    // } else {
+    //     statement.textContent = `You've collected ${num} tasks!`;
+    // }
 }
 
 //add task, check if empty string, append new list item, set its classes, html, datakey, update number of tasks, when removed - recalculate:
 function addNewTask(e){
-    e.preventDefault();
-    if(insertNewTask.value == ""){
-        return;
-    } else {
-        const newTask = insertNewTask.value;
-        const newTaskBox = document.createElement("li");
-        displayTasks.appendChild(newTaskBox);
-        taskTemplate(newTaskBox, newTask);
-        howManyTasks();
-        setDataKeyOnTask();
-        newTaskBox.querySelector("button.remove_task").addEventListener("click", 
-            (e)=>{
-                e.target.parentNode.remove();
-                howManyTasks();
-                setDataKeyOnTask();
-        });
-    };
-    insertNewTask.value = "";
+    // e.preventDefault();
+    // if(insertNewTask.value == ""){
+    //     return;
+    // } else {
+    //     const newTask = insertNewTask.value;
+    //     const newTaskBox = document.createElement("li");
+    //     displayTasks.appendChild(newTaskBox);
+    //     taskTemplate(newTaskBox, newTask);
+    //     howManyTasks();
+    //     setDataKeyOnTask();
+    //     newTaskBox.querySelector("button.remove_task").addEventListener("click", 
+    //         (e)=>{
+    //             e.target.parentNode.remove();
+    //             howManyTasks();
+    //             setDataKeyOnTask();
+    //     });
+    // };
+    // insertNewTask.value = "";
 }
 //button add task:
-submitNewTask.addEventListener("click", addNewTask);
+// submitNewTask.addEventListener("click", addNewTask);
 
 //searching:
 searchTask.addEventListener("input", ()=>{
