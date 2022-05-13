@@ -2,8 +2,8 @@ class App{
     constructor(){
         this.insertNewTask = document.querySelector("div.app header form.insert_task input");
         this.displayTasks = document.querySelector("div.app ul.tasks_list");
-        this.searchTask = document.querySelector("input.search");
-        
+        document.querySelector("input.search").addEventListener("input", Search.searching);
+        document.querySelector("footer>img").addEventListener("click", Search.showSearchBar);
         document.querySelector("div.app header form.insert_task button.add_task").addEventListener("click", this.addNewTask.bind(this));
     }
     addNewTask(e){
@@ -15,7 +15,7 @@ class App{
             this.displayTasks.appendChild(newTask.newTaskBox);
             newTask.createTaskTemplate(newTask.newTaskBox, newTask.content);
             Counter.howManyTasks();
-            console.log(this);
+            // console.log(this);
             newTask.setDataKeyOnTask();
             newTask.newTaskBox.querySelector("button.remove_task").addEventListener("click", 
                 (e)=>{
