@@ -11,22 +11,17 @@ class App{
         if(this.insertNewTask.value == ""){
             return;
         } else {
-            // const newTask = this.insertNewTask.value;
             const newTask = new Task(this.insertNewTask.value);
-            const newTaskBox = document.createElement("li");
-            this.displayTasks.appendChild(newTaskBox);
-            // taskTemplate(newTaskBox, newTask);
-            newTask.createTaskTemplate(newTaskBox, newTask.content);
+            this.displayTasks.appendChild(newTask.newTaskBox);
+            newTask.createTaskTemplate(newTask.newTaskBox, newTask.content);
             Counter.howManyTasks();
             console.log(this);
-            // howManyTasks();
             newTask.setDataKeyOnTask();
-            // setDataKeyOnTask();
-            newTaskBox.querySelector("button.remove_task").addEventListener("click", 
+            newTask.newTaskBox.querySelector("button.remove_task").addEventListener("click", 
                 (e)=>{
                     e.target.parentNode.remove();
                     Counter.howManyTasks();
-                    // newTask.setDataKeyOnTask();
+                    newTask.setDataKeyOnTask();
                     console.log("clicked");
             });
         };

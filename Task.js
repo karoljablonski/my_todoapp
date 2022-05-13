@@ -3,6 +3,7 @@ class Task{
         this.content = content;
         this.className = "task_item";
         this.tasksItems = document.getElementsByClassName("task_item");
+        this.newTaskBox = document.createElement("li");
     }
     createTaskTemplate(item, text){
         item.className = this.className;
@@ -13,7 +14,6 @@ class Task{
         </label><button class="remove_task">Done!</button>`;
     }
     setDataKeyOnTask(){
-        let key = 0;
         const tasksItemsConverted = [...this.tasksItems];
         tasksItemsConverted.forEach((item)=>{
             item.dataset.key = "";
