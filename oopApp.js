@@ -17,7 +17,7 @@ class App{
             this.displayTasks.appendChild(newTaskBox);
             // taskTemplate(newTaskBox, newTask);
             newTask.createTaskTemplate(newTaskBox, newTask.content);
-            Counter.howManyTasks().bind(this);
+            Counter.howManyTasks();
             console.log(this);
             // howManyTasks();
             newTask.setDataKeyOnTask();
@@ -25,10 +25,11 @@ class App{
             newTaskBox.querySelector("button.remove_task").addEventListener("click", 
                 (e)=>{
                     e.target.parentNode.remove();
-                    // howManyTasks();
-                    newTask.setDataKeyOnTask();
+                    Counter.howManyTasks();
+                    // newTask.setDataKeyOnTask();
+                    console.log("clicked");
             });
         };
-        insertNewTask.value = "";
+        this.insertNewTask.value = "";
     }
 }
