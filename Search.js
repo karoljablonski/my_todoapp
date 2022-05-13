@@ -11,13 +11,17 @@ class Search{
     }
     static showSearchBar(){
         const searchTask = document.querySelector("input.search");
-        let flagForSearchTaskDisplay = true;
-        if(flagForSearchTaskDisplay){
+        if(this.flagForSearchTaskDisplay){
             searchTask.style.display = "block";
-            flagForSearchTaskDisplay = false;
+            this.flagForSearchTaskDisplay = false;
         } else {
             searchTask.style.display = "none";
-            flagForSearchTaskDisplay = true;
+            this.flagForSearchTaskDisplay = true;
+            let tasksItemsConverted = [...document.getElementsByClassName("task_item")];
+            tasksItemsConverted.forEach((item)=>{
+                item.style.display = "flex";
+            });
+            searchTask.value = "";
         }
     }
 }

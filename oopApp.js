@@ -2,8 +2,9 @@ class App{
     constructor(){
         this.insertNewTask = document.querySelector("div.app header form.insert_task input");
         this.displayTasks = document.querySelector("div.app ul.tasks_list");
+        this.flagForSearchTaskDisplay = true;
         document.querySelector("input.search").addEventListener("input", Search.searching);
-        document.querySelector("footer>img").addEventListener("click", Search.showSearchBar);
+        document.querySelector("footer>img").addEventListener("click", Search.showSearchBar.bind(this));
         document.querySelector("div.app header form.insert_task button.add_task").addEventListener("click", this.addNewTask.bind(this));
     }
     addNewTask(e){
